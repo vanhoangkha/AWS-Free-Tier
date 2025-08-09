@@ -2,7 +2,7 @@
 
 > **🔥 HOT UPDATE**: AWS vừa ra mắt chương trình Free Tier hoàn toàn mới từ 15/07/2025 với nhiều ưu đãi hấp dẫn!
 
-## 📋 Tóm Tắt Executive
+## 📋 Tóm Tắt 
 
 AWS đã thực hiện cuộc cách mạng lớn nhất trong lịch sử chương trình Free Tier kể từ khi ra mắt năm 2010. Từ ngày **15/07/2025**, mô hình cũ dựa trên giới hạn giờ sử dụng sẽ được thay thế hoàn toàn bằng hệ thống **credit linh hoạt**.
 
