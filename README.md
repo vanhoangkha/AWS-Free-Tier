@@ -51,7 +51,6 @@ Hướng dẫn chi tiết và toàn diện về **AWS Free Tier 2025** - chươn
 - [AWS Free Tier Official](https://aws.amazon.com/free/)
 - [AWS Documentation](https://docs.aws.amazon.com/)
 - [AWS Skill Builder](https://skillbuilder.aws/)
-- [AWS Vietnam User Group](https://www.facebook.com/groups/awsvietnam)
 
 ## 🤝 Đóng góp
 
@@ -61,12 +60,6 @@ Mọi đóng góp đều được chào đón! Hãy:
 2. Tạo branch cho feature mới
 3. Commit changes
 4. Push và tạo Pull Request
-
-## 📞 Liên hệ
-
-- **GitHub Issues**: Báo lỗi hoặc đề xuất cải tiến
-- **Facebook Group**: [AWS Vietnam User Group](https://facebook.com/groups/awsvietnam)
-- **Email**: aws-vietnam-community@example.com
 
 ## 📄 License
 
