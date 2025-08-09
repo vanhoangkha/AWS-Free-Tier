@@ -1415,7 +1415,6 @@ Day 6-7:
 - [AWS Architecture Center](https://aws.amazon.com/architecture/)
 
 #### **👥 Communities:**
-- [AWS Vietnam User Group](https://www.facebook.com/groups/awsvietnam)
 - [r/aws Reddit](https://reddit.com/r/aws)
 - [AWS Community Builders](https://aws.amazon.com/developer/community/community-builders/)
 - [Stack Overflow AWS Tag](https://stackoverflow.com/questions/tagged/amazon-web-services)
@@ -1497,14 +1496,6 @@ AWS Free Tier 2025 là cơ hội **once-in-a-lifetime** để transform career c
 
 ---
 
-### 📞 Liên hệ & Support
-
-Nếu bạn có câu hỏi hoặc cần support trong quá trình học AWS:
-
-- **Email**: aws-vietnam-community@example.com
-- **Facebook Group**: [AWS Vietnam User Group](https://facebook.com/groups/awsvietnam)
-- **Discord**: AWS Vietnam Learning Community
-- **LinkedIn**: Connect với AWS professionals
 
 **Happy Learning! 🎓☁️**
 
