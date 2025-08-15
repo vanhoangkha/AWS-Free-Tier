@@ -4,15 +4,12 @@
 [![Vietnamese](https://img.shields.io/badge/Language-Vietnamese-blue.svg)](README.md)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Last Updated](https://img.shields.io/badge/Last%20Updated-January%202025-brightgreen.svg)]()
-[![Verified](https://img.shields.io/badge/AWS%20Docs-Verified-green.svg)](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/free-tier.html)
 
 ## 📋 Tổng quan
 
 Hướng dẫn chi tiết và toàn diện về **AWS Free Tier mới** - chương trình miễn phí cách mạng của Amazon Web Services với **$200 credit** và nhiều cải tiến đột phá cho tài khoản được tạo sau **15 tháng 7, 2025**.
 
 > ⚠️ **LƯU Ý QUAN TRỌNG**: Guide này chỉ áp dụng cho tài khoản AWS được tạo **SAU ngày 15/7/2025**. Nếu bạn tạo tài khoản trước ngày này, vui lòng tham khảo [AWS Free Tier cũ](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-free-tier.html).
-
-> ✅ **VERIFIED**: Tất cả thông tin trong guide này đã được kiểm tra và xác minh với [AWS Official Documentation](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/free-tier.html) vào tháng 1/2025.
 
 ## 🎯 Highlights chính
 
@@ -23,7 +20,6 @@ Hướng dẫn chi tiết và toàn diện về **AWS Free Tier mới** - chươ
 - ⚠️ **Danh sách services đắt đỏ** cần tránh
 - 📊 **Monitoring và tối ưu chi phí** advanced
 - ❓ **FAQ comprehensive** giải đáp mọi thắc mắc
-- 🔧 **Scripts và tools** tự động hóa cost optimization
 
 ## 📚 Mục lục
 
@@ -71,6 +67,7 @@ AWS đã cách mạng hóa chương trình Free Tier với những thay đổi l
 | **Tự động đóng tài khoản** | Không | Có (Free Plan) |
 
 ---
+
 ## ⚖️ So sánh chi tiết: Free Plan vs Paid Plan
 
 ### 🆓 **Free Account Plan**
@@ -204,6 +201,7 @@ Tổng cộng: $200 credit trong 3 ngày
    - Verify trong EC2 Console
 
 **💰 Chi phí ước tính:** $0.0116/hour (sẽ được trừ từ credit)
+
 **⏱️ Thời gian:** 15-20 phút
 
 ### 🤖 **Task 2: Amazon Bedrock Playground** - $20 credit
@@ -233,6 +231,7 @@ Tổng cộng: $200 credit trong 3 ngày
    - Thử thêm 2-3 prompts khác
 
 **💰 Chi phí ước tính:** $0.001-0.01 per request
+
 **⏱️ Thời gian:** 10-15 phút
 
 ### 💰 **Task 3: Set up AWS Budgets** - $20 credit
@@ -263,6 +262,7 @@ Tổng cộng: $200 credit trong 3 ngày
    - Click **"Create budget"**
 
 **💰 Chi phí:** Miễn phí (2 budgets đầu tiên)
+
 **⏱️ Thời gian:** 10-15 phút
 
 ### ⚡ **Task 4: Create Lambda Web App** - $20 credit
@@ -314,6 +314,7 @@ Tổng cộng: $200 credit trong 3 ngày
    - Verify web page hiển thị
 
 **💰 Chi phí ước tính:** $0.0000002 per request
+
 **⏱️ Thời gian:** 20-25 phút
 
 ### 🗄️ **Task 5: Create RDS Database** - $20 credit
@@ -355,6 +356,7 @@ Tổng cộng: $200 credit trong 3 ngày
    - Disable backup để tránh charges
 
 **💰 Chi phí ước tính:** $0.017/hour
+
 **⏱️ Thời gian:** 30-40 phút (bao gồm waiting time)
 
 ### 🎉 **Xác nhận hoàn thành**
@@ -370,6 +372,7 @@ Tổng cộng: $200 credit trong 3 ngày
 - **Tổng thời gian:** 2-3 ngày
 
 ---
+
 ## ⚠️ Danh sách "sát thủ" credit cần tránh
 
 ### 🚨 **Tier 1: Cực kỳ nguy hiểm** (Có thể tiêu hết $200 trong vài giờ)
@@ -391,6 +394,45 @@ Tổng cộng: $200 credit trong 3 ngày
 - **ra3.xlplus:** $3.26/hour
 - **⚠️ Lưu ý:** Minimum cluster size, khó optimize
 
+#### 🌐 **CloudFront (Data Transfer)**
+- **Data Transfer Out:** $0.085-0.17/GB
+- **⚠️ Lưu ý:** Có thể tích lũy nhanh với traffic cao
+
+### ⚡ **Tier 2: Nguy hiểm trung bình** (Có thể tiêu $50-100/tháng)
+
+#### 🗄️ **RDS (Large Instances)**
+- **db.r5.large:** $0.24/hour
+- **db.r5.xlarge:** $0.48/hour
+- **Multi-AZ:** Double cost
+- **⚠️ Lưu ý:** Stick với db.t3.micro
+
+#### 📱 **API Gateway (High Traffic)**
+- **REST API:** $3.50 per million requests
+- **WebSocket:** $1.00 per million messages
+- **⚠️ Lưu ý:** Monitor request count
+
+#### 🔍 **Elasticsearch Service**
+- **t3.small.elasticsearch:** $0.036/hour
+- **m5.large.elasticsearch:** $0.108/hour
+- **⚠️ Lưu ý:** Always running, cần dedicated master
+
+### 🟡 **Tier 3: Cần cẩn thận** (Có thể tiêu $10-50/tháng)
+
+#### 💾 **EBS Storage (Large Volumes)**
+- **gp3:** $0.08/GB-month
+- **io2:** $0.125/GB-month + IOPS cost
+- **⚠️ Lưu ý:** Delete unused volumes
+
+#### 🌊 **Data Transfer**
+- **Inter-region:** $0.02/GB
+- **Internet:** $0.09/GB
+- **⚠️ Lưu ý:** Monitor bandwidth usage
+
+#### 📞 **SNS/SES (High Volume)**
+- **SNS:** $0.50 per million requests
+- **SES:** $0.10 per 1,000 emails
+- **⚠️ Lưu ý:** Có Free Tier nhưng limited
+
 ### 🛡️ **Chiến lược phòng thủ**
 
 #### 🚨 **1. Set up Billing Alerts**
@@ -407,10 +449,20 @@ Budgets:
 - Review **"Daily Spend"** và **"Service Breakdown"**
 - Set up **Cost Anomaly Detection**
 
-#### ⏰ **3. Automated Cleanup Script**
+#### 🔧 **3. Resource Tagging Strategy**
+```
+Tags bắt buộc:
+- Environment: dev/test/prod
+- Project: project-name
+- Owner: your-email
+- AutoShutdown: yes/no
+- CostCenter: free-tier
+```
+
+#### ⏰ **4. Automated Cleanup**
 ```bash
-#!/bin/bash
 # Script tự động cleanup (chạy hàng ngày)
+#!/bin/bash
 
 # Stop all running EC2 instances tagged for shutdown
 aws ec2 describe-instances --filters "Name=tag:AutoShutdown,Values=yes" \
@@ -422,6 +474,11 @@ aws ec2 describe-volumes --filters "Name=status,Values=available" \
   --query 'Volumes[?CreateTime<=`2024-01-01`].VolumeId' \
   --output text | xargs -r aws ec2 delete-volume --volume-id
 ```
+
+#### 📱 **5. Mobile Monitoring**
+- Install **AWS Console Mobile App**
+- Enable push notifications cho billing alerts
+- Check costs mỗi sáng
 
 ### 🎯 **Safe Services cho Free Tier**
 
@@ -440,7 +497,6 @@ aws ec2 describe-volumes --filters "Name=status,Values=available" \
 - **API Gateway:** Monitor request count
 
 ---
-
 ## 🏗️ Kiến trúc mẫu với $200 credit
 
 ### 🌟 **Architecture 1: Simple Web Application** - $80-120/6 tháng
@@ -456,13 +512,20 @@ Internet → CloudFront → ALB → EC2 (t3.micro) → RDS (db.t3.micro)
                               Lambda (Background Tasks)
 ```
 
-**💰 Cost Breakdown (Optimized):**
+**💰 Cost Breakdown:**
 - **EC2 t3.micro:** $8.5/month × 6 = $51
 - **RDS db.t3.micro:** $12.2/month × 6 = $73.2
+- **ALB:** $16.2/month × 6 = $97.2
 - **S3:** $1/month × 6 = $6
 - **CloudFront:** $2/month × 6 = $12
 - **Lambda:** $0.5/month × 6 = $3
-- **Total:** ~$145 (fit trong $200 budget)
+- **Total:** ~$242.9 (cần optimize)
+
+**🔧 Optimization để fit $200:**
+- Sử dụng EC2 làm load balancer thay ALB (-$97.2)
+- Giảm RDS backup retention (-$10)
+- Sử dụng CloudFront caching tốt hơn (-$5)
+- **Final Cost:** ~$130
 
 ### 🚀 **Architecture 2: Serverless Application** - $60-100/6 tháng
 
@@ -493,6 +556,143 @@ CloudWatch    S3 (Logs)      EventBridge
 - No server management
 - High availability
 
+### 🔬 **Architecture 3: Data Analytics Platform** - $150-180/6 tháng
+
+**🎯 Use Case:** Data processing, analytics, ML experiments
+
+**🏗️ Components:**
+```
+S3 (Data Lake) → Glue (ETL) → Athena (Query)
+     ↓              ↓            ↓
+Kinesis (Stream) → Lambda → QuickSight
+     ↓              ↓            ↓
+CloudWatch    SageMaker    SNS (Alerts)
+```
+
+**💰 Cost Breakdown:**
+- **S3:** $5/month × 6 = $30
+- **Glue:** $10/month × 6 = $60
+- **Athena:** $5/TB scanned × 6 = $30
+- **Kinesis:** $15/month × 6 = $90
+- **Lambda:** $2/month × 6 = $12
+- **QuickSight:** $9/month × 6 = $54
+- **Total:** ~$276 (over budget)
+
+**🔧 Optimization:**
+- Sử dụng Kinesis Data Firehose thay Kinesis Streams (-$60)
+- Limit Athena queries (-$15)
+- Sử dụng S3 Select thay một số Athena queries (-$10)
+- **Final Cost:** ~$191
+
+### 🎮 **Architecture 4: Gaming Backend** - $120-160/6 tháng
+
+**🎯 Use Case:** Mobile game, real-time multiplayer
+
+**🏗️ Components:**
+```
+CloudFront → API Gateway → Lambda → DynamoDB
+     ↓           ↓           ↓         ↓
+   S3 CDN   WebSocket   ElastiCache  GameLift
+     ↓           ↓           ↓         ↓
+Cognito    SNS Push    CloudWatch   SQS
+```
+
+**💰 Cost Breakdown:**
+- **API Gateway:** $10/month × 6 = $60
+- **Lambda:** $5/month × 6 = $30
+- **DynamoDB:** $8/month × 6 = $48
+- **ElastiCache:** $13/month × 6 = $78
+- **CloudFront:** $3/month × 6 = $18
+- **S3:** $2/month × 6 = $12
+- **Cognito:** $1/month × 6 = $6
+- **Total:** ~$252 (over budget)
+
+**🔧 Optimization:**
+- Sử dụng DynamoDB DAX thay ElastiCache (-$30)
+- Optimize Lambda memory allocation (-$10)
+- Reduce CloudFront data transfer (-$5)
+- **Final Cost:** ~$207 (still over, cần thêm optimization)
+
+### 📊 **Cost Monitoring Dashboard**
+
+**🔧 Setup CloudWatch Dashboard:**
+```json
+{
+  "widgets": [
+    {
+      "type": "metric",
+      "properties": {
+        "metrics": [
+          ["AWS/Billing", "EstimatedCharges", "Currency", "USD"]
+        ],
+        "period": 86400,
+        "stat": "Maximum",
+        "region": "us-east-1",
+        "title": "Daily Spend"
+      }
+    },
+    {
+      "type": "metric", 
+      "properties": {
+        "metrics": [
+          ["AWS/EC2", "CPUUtilization"],
+          ["AWS/RDS", "CPUUtilization"],
+          ["AWS/Lambda", "Invocations"]
+        ],
+        "period": 300,
+        "stat": "Average",
+        "title": "Resource Utilization"
+      }
+    }
+  ]
+}
+```
+
+### 🎯 **Best Practices cho Architecture**
+
+#### 🔄 **1. Multi-tier Cleanup Strategy**
+```bash
+# Tier 1: Daily cleanup (automated)
+- Stop non-production EC2 instances
+- Delete old CloudWatch logs (>7 days)
+- Clean up unused EBS snapshots
+
+# Tier 2: Weekly cleanup (manual review)
+- Review and delete unused resources
+- Optimize instance sizes
+- Check for zombie resources
+
+# Tier 3: Monthly cleanup (comprehensive)
+- Full cost analysis
+- Architecture optimization
+- Resource right-sizing
+```
+
+#### 📈 **2. Scaling Strategy**
+```
+Phase 1 (Month 1-2): Basic setup, learning
+- Single AZ deployment
+- Minimal redundancy
+- Focus on functionality
+
+Phase 2 (Month 3-4): Optimization
+- Multi-AZ where critical
+- Add monitoring and alerts
+- Performance tuning
+
+Phase 3 (Month 5-6): Production ready
+- Full redundancy
+- Auto-scaling
+- Disaster recovery
+```
+
+#### 🔒 **3. Security Best Practices**
+- **IAM:** Least privilege principle
+- **VPC:** Private subnets cho databases
+- **Security Groups:** Restrictive rules
+- **Encryption:** At rest và in transit
+- **Secrets Manager:** Cho sensitive data
+
 ---
 
 ## 📊 Monitoring và tối ưu chi phí
@@ -522,11 +722,27 @@ CloudWatch    S3 (Logs)      EventBridge
    - Set up service-level breakdown
    - Monitor top 5 cost drivers
 
-#### 🤖 **Level 2: Advanced Analytics** (Tuần 2-4)
+**📱 Tools:**
+- AWS Console Mobile App
+- AWS Cost Explorer
+- AWS Budgets
+
+#### 📊 **Level 2: Advanced Analytics** (Tuần 2-4)
 
 **🔍 Deep Dive Analysis:**
 
-1. **Custom CloudWatch Metrics**
+1. **Cost and Usage Reports (CUR)**
+   ```bash
+   # Enable CUR
+   aws cur put-report-definition \
+     --report-definition ReportName=daily-cost-report \
+     --s3-bucket=my-cur-bucket \
+     --s3-prefix=cost-reports/ \
+     --time-unit=DAILY \
+     --format=textORcsv
+   ```
+
+2. **Custom CloudWatch Metrics**
    ```python
    import boto3
    
@@ -559,7 +775,7 @@ CloudWatch    S3 (Logs)      EventBridge
        )
    ```
 
-2. **Resource Tagging Strategy**
+3. **Resource Tagging Strategy**
    ```
    Mandatory Tags:
    - Project: project-name
@@ -569,6 +785,173 @@ CloudWatch    S3 (Logs)      EventBridge
    - AutoShutdown: true/false
    - CreatedDate: YYYY-MM-DD
    ```
+
+#### 🤖 **Level 3: Automation & AI** (Tháng 2-6)
+
+**🔄 Automated Cost Optimization:**
+
+1. **Lambda Cost Optimizer**
+   ```python
+   import boto3
+   import json
+   from datetime import datetime, timedelta
+   
+   def lambda_handler(event, context):
+       ec2 = boto3.client('ec2')
+       
+       # Find idle instances (CPU < 5% for 24h)
+       cw = boto3.client('cloudwatch')
+       
+       instances = ec2.describe_instances()
+       
+       for reservation in instances['Reservations']:
+           for instance in reservation['Instances']:
+               if instance['State']['Name'] == 'running':
+                   # Check CPU utilization
+                   metrics = cw.get_metric_statistics(
+                       Namespace='AWS/EC2',
+                       MetricName='CPUUtilization',
+                       Dimensions=[
+                           {
+                               'Name': 'InstanceId',
+                               'Value': instance['InstanceId']
+                           }
+                       ],
+                       StartTime=datetime.utcnow() - timedelta(days=1),
+                       EndTime=datetime.utcnow(),
+                       Period=3600,
+                       Statistics=['Average']
+                   )
+                   
+                   avg_cpu = sum([m['Average'] for m in metrics['Datapoints']]) / len(metrics['Datapoints'])
+                   
+                   if avg_cpu < 5:
+                       # Send alert for potential shutdown
+                       sns = boto3.client('sns')
+                       sns.publish(
+                           TopicArn='arn:aws:sns:region:account:cost-alerts',
+                           Message=f'Instance {instance["InstanceId"]} has low CPU utilization: {avg_cpu}%',
+                           Subject='Potential Cost Optimization'
+                       )
+   ```
+
+2. **Right-sizing Recommendations**
+   ```bash
+   # Get EC2 right-sizing recommendations
+   aws ce get-rightsizing-recommendation \
+     --service EC2-Instance \
+     --configuration '{
+       "BenefitsConsidered": true,
+       "RecommendationTarget": "SAME_INSTANCE_FAMILY"
+     }'
+   ```
+
+3. **Automated Resource Cleanup**
+   ```bash
+   #!/bin/bash
+   # Daily cleanup script
+   
+   # Delete old EBS snapshots (>30 days)
+   aws ec2 describe-snapshots --owner-ids self \
+     --query 'Snapshots[?StartTime<=`2024-12-01`].SnapshotId' \
+     --output text | xargs -r aws ec2 delete-snapshot --snapshot-id
+   
+   # Stop instances tagged for auto-shutdown
+   aws ec2 describe-instances \
+     --filters "Name=tag:AutoShutdown,Values=true" \
+     --query 'Reservations[].Instances[?State.Name==`running`].InstanceId' \
+     --output text | xargs -r aws ec2 stop-instances --instance-ids
+   
+   # Delete unused security groups
+   aws ec2 describe-security-groups \
+     --query 'SecurityGroups[?GroupName!=`default`]' \
+     --output json | jq -r '.[] | select(.IpPermissions | length == 0) | .GroupId' \
+     | xargs -r aws ec2 delete-security-group --group-id
+   ```
+
+### 📈 **Cost Optimization Techniques**
+
+#### 💡 **1. Compute Optimization**
+
+**EC2 Instance Optimization:**
+```
+Current: t3.small ($0.0208/hour) = $15.18/month
+Optimized: t3.micro ($0.0104/hour) = $7.59/month
+Savings: $7.59/month = $45.54/6 months
+```
+
+**Lambda Optimization:**
+```python
+# Before: 1GB memory, 1000ms execution
+Cost per invocation: $0.0000166667
+
+# After: 512MB memory, 800ms execution  
+Cost per invocation: $0.0000083334
+Savings: 50% per invocation
+```
+
+#### 💾 **2. Storage Optimization**
+
+**S3 Storage Classes:**
+```
+Standard: $0.023/GB-month
+IA: $0.0125/GB-month (>30 days)
+Glacier: $0.004/GB-month (>90 days)
+
+Example: 100GB data
+- All Standard: $2.30/month
+- Intelligent Tiering: $1.20/month
+- Savings: $1.10/month = $6.60/6 months
+```
+
+**EBS Optimization:**
+```
+gp2: $0.10/GB-month
+gp3: $0.08/GB-month (20% cheaper)
+
+Example: 100GB volume
+- gp2: $10/month
+- gp3: $8/month  
+- Savings: $2/month = $12/6 months
+```
+
+#### 🌐 **3. Network Optimization**
+
+**Data Transfer Costs:**
+```
+Internet Out: $0.09/GB
+CloudFront: $0.085/GB (first 10TB)
+Savings with CDN: 5-10%
+
+VPC Endpoints: $0.01/hour + $0.01/GB
+Direct Connect: $0.30/hour + data transfer
+```
+
+### 🎯 **Monthly Cost Review Process**
+
+#### 📅 **Week 1: Data Collection**
+- Export Cost and Usage Reports
+- Analyze service-level spending
+- Identify top cost drivers
+- Review resource utilization
+
+#### 📊 **Week 2: Analysis**
+- Compare actual vs budgeted costs
+- Identify cost anomalies
+- Analyze usage patterns
+- Calculate cost per service/project
+
+#### 🔧 **Week 3: Optimization**
+- Implement right-sizing recommendations
+- Clean up unused resources
+- Optimize storage classes
+- Review and adjust budgets
+
+#### 📈 **Week 4: Planning**
+- Forecast next month's costs
+- Plan architecture changes
+- Update cost optimization roadmap
+- Document lessons learned
 
 ### 🚨 **Emergency Cost Control**
 
@@ -594,8 +977,16 @@ CloudWatch    S3 (Logs)      EventBridge
    )
    ```
 
----
+3. **Service Limits**
+   ```bash
+   # Set service limits to prevent overspend
+   aws service-quotas request-service-quota-increase \
+     --service-code ec2 \
+     --quota-code L-1216C47A \
+     --desired-value 5
+   ```
 
+---
 ## ❓ FAQ - Giải đáp mọi thắc mắc
 
 ### 🆕 **AWS Free Tier 2025 Basics**
@@ -616,15 +1007,23 @@ A:
 - **Free Plan** nếu: Học tập, thử nghiệm, prototype, không cần production services
 - **Paid Plan** nếu: Xây dựng production app, cần access đầy đủ services, có kinh nghiệm AWS
 
+**Q4: $200 credit có thời hạn không?**
+A: 
+- **Free Plan:** Credit hết hạn sau 6 tháng hoặc khi dùng hết
+- **Paid Plan:** Credit không có thời hạn cụ thể, nhưng thường 12 tháng
+
 ### 💰 **Credit và Billing**
 
-**Q4: Làm sao để kiểm tra số credit còn lại?**
+**Q5: Làm sao để kiểm tra số credit còn lại?**
 A: Truy cập [AWS Billing Console](https://console.aws.amazon.com/costmanagement/) → Credits section để xem chi tiết.
 
-**Q5: Credit có thể chuyển sang tài khoản khác không?**
+**Q6: Credit có thể chuyển sang tài khoản khác không?**
 A: Không. Credit chỉ áp dụng cho tài khoản được cấp và không thể transfer.
 
-**Q6: Services nào KHÔNG được cover bởi credit?**
+**Q7: Nếu tôi upgrade từ Free Plan sang Paid Plan, credit có mất không?**
+A: Không. Credit sẽ được giữ nguyên và tiếp tục sử dụng được.
+
+**Q8: Services nào KHÔNG được cover bởi credit?**
 A: Một số services không áp dụng credit:
 - Reserved Instances
 - Savings Plans  
@@ -634,38 +1033,138 @@ A: Một số services không áp dụng credit:
 
 ### 🎯 **5 Nhiệm vụ kiếm credit**
 
-**Q7: Tôi có thể làm 5 nhiệm vụ nhiều lần để có thêm credit không?**
+**Q9: Tôi có thể làm 5 nhiệm vụ nhiều lần để có thêm credit không?**
 A: Không. Mỗi nhiệm vụ chỉ được tính credit 1 lần duy nhất.
 
-**Q8: Nếu tôi làm sai 1 nhiệm vụ, có thể làm lại không?**
+**Q10: Nếu tôi làm sai 1 nhiệm vụ, có thể làm lại không?**
 A: Có. Bạn có thể làm lại nhiệm vụ cho đến khi hoàn thành đúng.
 
-**Q9: Nhiệm vụ nào khó nhất và dễ nhất?**
+**Q11: Nhiệm vụ nào khó nhất và dễ nhất?**
 A: 
 - **Dễ nhất:** Set up AWS Budgets (10-15 phút)
 - **Khó nhất:** Create RDS Database (30-40 phút + waiting time)
 
+**Q12: Tôi có thể skip một số nhiệm vụ không?**
+A: Có, nhưng bạn sẽ mất credit tương ứng. Mỗi nhiệm vụ = $20 credit.
+
+### 🏗️ **Architecture và Services**
+
+**Q13: Services nào an toàn nhất cho Free Tier?**
+A: Always Free services:
+- Lambda (1M requests/month)
+- DynamoDB (25GB + 25 RCU/WCU)
+- S3 (5GB storage)
+- CloudWatch (10 metrics)
+- SNS (1M publishes)
+
+**Q14: Tôi có thể chạy production app với $200 credit không?**
+A: Có thể cho small-scale apps, nhưng nên:
+- Sử dụng serverless architecture
+- Implement auto-scaling
+- Set up comprehensive monitoring
+- Plan cho việc scale beyond Free Tier
+
+**Q15: EC2 instance nào nên sử dụng?**
+A: 
+- **Recommended:** t3.micro, t2.micro (Free Tier eligible)
+- **Avoid:** Anything larger than t3.small
+- **Never:** GPU instances, memory-optimized instances
+
 ### 🚨 **Troubleshooting**
 
-**Q10: Tại sao tôi bị charge dù còn credit?**
+**Q16: Tại sao tôi bị charge dù còn credit?**
 A: Có thể do:
 - Sử dụng services không được cover bởi credit
 - Vượt quá Free Tier limits
 - Sử dụng resources ở region không eligible
 - Data transfer charges
 
-**Q11: Làm sao để tránh unexpected charges?**
+**Q17: Làm sao để tránh unexpected charges?**
 A: 
 - Set up billing alerts ở multiple thresholds
 - Use AWS Budgets với strict limits
 - Enable Cost Anomaly Detection
 - Review costs daily trong tuần đầu
 
-**Q12: Tài khoản Free Plan tự động đóng khi nào?**
+**Q18: Tài khoản Free Plan tự động đóng khi nào?**
 A: Khi:
 - Hết 6 tháng từ ngày tạo tài khoản, HOẶC
 - Credit balance = $0
 - Whichever comes first
+
+**Q19: Tôi có thể recover data sau khi tài khoản đóng không?**
+A: AWS giữ data trong 90 ngày sau khi đóng tài khoản. Bạn có thể upgrade lên Paid Plan trong thời gian này để recover.
+
+### 🎓 **Learning và Career**
+
+**Q20: $200 credit đủ để học cho AWS certification không?**
+A: Có, đủ cho:
+- AWS Cloud Practitioner
+- AWS Solutions Architect Associate (phần lớn)
+- Hands-on labs và practice tests
+
+**Q21: Roadmap học AWS nên như thế nào?**
+A: 
+```
+Month 1-2: Fundamentals (EC2, S3, IAM, VPC)
+Month 3-4: Advanced Services (RDS, Lambda, API Gateway)
+Month 5-6: Architecture & Best Practices
+```
+
+**Q22: Resources học AWS miễn phí nào tốt nhất?**
+A: 
+- [AWS Skill Builder](https://skillbuilder.aws/) (miễn phí)
+- [AWS Documentation](https://docs.aws.amazon.com/)
+- [AWS Well-Architected Framework](https://aws.amazon.com/architecture/well-architected/)
+- YouTube: AWS Official Channel
+
+### 🔧 **Technical Issues**
+
+**Q23: Tại sao tôi không thấy widget "Explore AWS"?**
+A: 
+- Đảm bảo tài khoản được tạo sau 15/7/2025
+- Clear browser cache và refresh
+- Thử browser khác
+- Contact AWS Support nếu vẫn không thấy
+
+**Q24: Lambda function không chạy được?**
+A: Check:
+- IAM permissions
+- Function timeout settings
+- Memory allocation
+- VPC configuration (nếu có)
+- CloudWatch logs để debug
+
+**Q25: RDS database không connect được?**
+A: 
+- Check security group rules
+- Verify VPC và subnet configuration
+- Ensure database is in "Available" state
+- Check endpoint và port number
+
+### 💡 **Pro Tips**
+
+**Q26: Cách tối ưu $200 credit tốt nhất?**
+A: 
+- Sử dụng serverless architecture khi có thể
+- Implement auto-shutdown cho EC2 instances
+- Use S3 Intelligent Tiering
+- Monitor costs daily
+- Clean up resources regularly
+
+**Q27: Nên backup data như thế nào?**
+A: 
+- S3 cho static files (cheap storage)
+- RDS automated backups (included in Free Tier)
+- EBS snapshots cho EC2 volumes
+- Export important data ra local trước khi hết credit
+
+**Q28: Cách scale beyond Free Tier?**
+A: 
+- Plan architecture cho production từ đầu
+- Implement cost monitoring và alerts
+- Consider Reserved Instances cho long-term
+- Use AWS Cost Calculator để estimate
 
 ---
 
@@ -718,6 +1217,11 @@ A: Khi:
    - S3 + Lambda + API Gateway
    - Cost: ~$10/month
 
+**📖 Resources:**
+- AWS Cloud Practitioner Essentials (free)
+- AWS Documentation
+- Hands-on tutorials
+
 #### 🚀 **Tháng 3-4: Intermediate Services**
 *Budget: $60-80*
 
@@ -761,6 +1265,11 @@ A: Khi:
 4. **Microservices Architecture**
    - ECS + ALB + RDS
    - Cost: ~$35/month
+
+**📖 Resources:**
+- AWS Solutions Architect Associate materials
+- AWS Well-Architected Framework
+- Serverless patterns documentation
 
 #### 🏗️ **Tháng 5-6: Advanced Architecture**
 *Budget: $70-90*
@@ -807,6 +1316,34 @@ A: Khi:
    - S3 + Glue + Athena + QuickSight
    - Cost: ~$25/month
 
+**📖 Resources:**
+- AWS Solutions Architect Professional materials
+- AWS re:Invent videos
+- Case studies và whitepapers
+
+### 🎯 **Skill Assessment Checkpoints**
+
+#### 📊 **Month 2 Assessment:**
+- [ ] Can launch và manage EC2 instances
+- [ ] Understand S3 storage classes
+- [ ] Configure basic VPC networking
+- [ ] Set up RDS database
+- [ ] Implement basic IAM policies
+
+#### 📊 **Month 4 Assessment:**
+- [ ] Build serverless applications
+- [ ] Design API architectures
+- [ ] Implement container solutions
+- [ ] Set up comprehensive monitoring
+- [ ] Troubleshoot common issues
+
+#### 📊 **Month 6 Assessment:**
+- [ ] Design scalable architectures
+- [ ] Implement CI/CD pipelines
+- [ ] Apply security best practices
+- [ ] Optimize costs effectively
+- [ ] Plan disaster recovery
+
 ### 🏆 **Certification Path**
 
 #### 🥉 **AWS Cloud Practitioner** (Month 2)
@@ -831,6 +1368,12 @@ A: Khi:
 - [AWS Documentation](https://docs.aws.amazon.com/) - Comprehensive guides
 - [AWS Architecture Center](https://aws.amazon.com/architecture/) - Best practices
 - [AWS re:Invent Videos](https://www.youtube.com/user/AmazonWebServices) - Latest updates
+
+#### 💰 **Paid Resources (Optional):**
+- A Cloud Guru - $39/month
+- Linux Academy - $49/month
+- Udemy Courses - $10-50 one-time
+- AWS Training Classes - $600-2000
 
 #### 🤝 **Community Resources:**
 - [AWS Community Builders](https://aws.amazon.com/developer/community/community-builders/)
@@ -922,6 +1465,57 @@ Sau khi đọc và thực hành theo guide này, bạn đã:
 - **Reddit:** r/aws community
 - **AWS re:Post:** Official Q&A platform
 
+### 📊 **Success Metrics**
+
+Track your progress với các metrics sau:
+
+#### 📈 **Technical Metrics:**
+- [ ] Services mastered: ___/50
+- [ ] Projects completed: ___/10
+- [ ] Certifications earned: ___/3
+- [ ] GitHub stars: ___/100
+
+#### 💰 **Financial Metrics:**
+- [ ] Credit utilization: ___%
+- [ ] Monthly spend: $___
+- [ ] Cost optimization achieved: ___%
+- [ ] ROI on learning investment: ___%
+
+#### 🎯 **Career Metrics:**
+- [ ] Job interviews: ___
+- [ ] Salary increase: ___%
+- [ ] Network connections: ___
+- [ ] Speaking opportunities: ___
+
+### 🎁 **Bonus Resources**
+
+#### 📚 **Exclusive Downloads:**
+- AWS Free Tier Checklist (PDF)
+- Cost Optimization Scripts (GitHub)
+- Architecture Templates (CloudFormation)
+- Interview Questions Bank (Notion)
+
+#### 🎥 **Video Tutorials:**
+- 5 Tasks Walkthrough (YouTube)
+- Architecture Deep Dives (Loom)
+- Cost Optimization Masterclass (Vimeo)
+- Career Guidance Sessions (Zoom)
+
+### 🙏 **Acknowledgments**
+
+**Special Thanks:**
+- AWS Documentation Team
+- AWS Community Builders
+- Open Source Contributors
+- Beta Testers và Reviewers
+
+### 📄 **Legal & Disclaimer**
+
+- Guide này không phải official AWS documentation
+- Prices và features có thể thay đổi
+- Always refer to official AWS documentation
+- Use at your own risk và responsibility
+
 ### ⭐ **Support This Project**
 
 Nếu guide này hữu ích, hãy:
@@ -938,14 +1532,15 @@ Nếu guide này hữu ích, hãy:
 
 **Last Updated:** January 2025  
 **Version:** 2.0  
-**Contributors:** AWS enthusiasts worldwide
+**Contributors:** 50+ AWS enthusiasts
 
 ---
 
 ## 📞 Contact & Support
 
-- **GitHub Issues:** [Report bugs](https://github.com/your-repo/aws-free-tier-guide/issues)
-- **Discussions:** [Join conversations](https://github.com/your-repo/aws-free-tier-guide/discussions)
+- **Email:** aws-free-tier-guide@example.com
+- **GitHub Issues:** [Report bugs](https://github.com/aws-vietnam/free-tier-guide/issues)
+- **Discussions:** [Join conversations](https://github.com/aws-vietnam/free-tier-guide/discussions)
 - **LinkedIn:** [AWS Vietnam Community](https://linkedin.com/company/aws-vietnam)
 
 **© 2025 AWS Vietnam Community. Licensed under MIT License.**
