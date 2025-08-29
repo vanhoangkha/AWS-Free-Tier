@@ -838,23 +838,6 @@ A: Khi:
 - Reddit: r/aws, r/AWSCertifications
 - Discord: AWS Community servers
 
-### 🎯 **Career Outcomes**
-
-#### 💼 **Entry Level (After Month 2):**
-- **Cloud Support Associate:** $45-60K
-- **Junior DevOps Engineer:** $50-70K
-- **AWS Technical Intern:** $20-25/hour
-
-#### 💼 **Mid Level (After Month 4):**
-- **Cloud Engineer:** $70-90K
-- **Solutions Architect:** $80-110K
-- **DevOps Engineer:** $75-100K
-
-#### 💼 **Senior Level (After Month 6+):**
-- **Senior Solutions Architect:** $110-150K
-- **Cloud Architect:** $120-180K
-- **Principal Engineer:** $150-250K
-
 ---
 
 ## 🚀 Tổng kết và Next Steps
